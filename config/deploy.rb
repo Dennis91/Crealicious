@@ -17,9 +17,6 @@ set :ssh_options, {:forward_agent => true }
 
 default_run_options[:pty] = true
 
-
-
-
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
@@ -41,16 +38,14 @@ role :db,  ip_address, :primary => true # This is where Rails migrations will ru
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
-
-namespace :deploy do
-  namespace :assets do
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      from = source.next_revision(current_revision)
-      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
-        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-      else
-        logger.info "Skipping asset pre-compilation because there were no asset changes"
-      end
+namespace :assets do
+    desc "compile assets locally and upload before finalize_update"
+    task :deploy do
+        %x[bundle exec rake assets:clean && bundle exec rake assets:precompile]
+        ENV['COMMAND'] = " mkdir '#{release_path}/public/assets'"
+        invoke
+        upload '/path/to/app/public/assets', "#{release_path}/public/assets", {:recursive => true}
     end
-  end
 end
+after "deploy:finalize_update", "assets:deploy"
+
