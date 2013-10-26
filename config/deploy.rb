@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+load 'deploy/assets'
 
 set :application, "crealicious"
 set :ip_address, "149.210.131.83"
