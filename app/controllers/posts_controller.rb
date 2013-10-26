@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root ) }
+        format.html { redirect_to root }
         flash[:succes] =  "Post is succesvol aangemaakt"
       else
         format.html { render :action => "new" }
