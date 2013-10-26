@@ -1,0 +1,65 @@
+<div class="container">
+	<div id="slider">
+		<%= image_tag @images.last.image_url(:slider) %>
+	</div>
+	<div class="right_sidebar">
+		<h2>Nieuws 
+		<% if user_signed_in? %>
+			<%= link_to raw("<i class='icon-plus pull-right'></i>"), new_post_path %>
+		<% end %>
+		</h2>
+		<br>
+		<% @posts.each do |p| %>
+			<p><%= p.message %></p>
+			<p><%= p.created_at.strftime("%d %b. %Y")%></p>
+		<% end %>
+		
+		
+		
+		
+	</div>
+	<div class="text_container">
+		<div id="text_5">
+			<br>
+			<h2>Eigen taart samenstellen?</h2>
+			<br>
+			<p>
+				U kunt uw eigen taart van begin tot eind
+				op een leuke interactieve manier samenstellen.
+				Keuzes voor #gelegenheid, #grootte, #thema,
+				#smaken, #vullingen en nog veel meer!
+				<br><br>
+				Kijk snel hier en begin met ontwerpen !
+			</p>
+		</div>
+		<div id="image_7">
+			<%= image_tag("aardbei.JPG", :class => "shadow") %>
+			<%= image_tag("framboos.JPG", :class => "shadow" ) %>
+			<%= image_tag("appel.JPG", :class => "shadow" ) %>
+		</div>
+	</div>
+	<hr class="normal">
+	<div class="reviews">
+		<div id="score">
+			<h2>Klantenboordelingen ( <%= @reviews.count %> )</h2>
+			<p><%= @reviews.last.score %></p>
+			<%= link_to 'Schrijf hier zelf een beoordeling', new_review_path %>
+		</div>
+		<div id="review">
+			<h2><%= @reviews.last.name %></h2>
+			<p><%= @reviews.last.description %></p>
+			
+		</div>
+	</div>
+	<hr class="normal">
+	<div class="recent">
+		<h2>Recenten taarten...</h2>
+		<br>
+		<% @recent.each do |i| %>
+			<div id="small_img" class="shadow"><%= image_tag i.image_url(:thumb) %></div>
+		<% end %>
+	</div>
+	
+	<br><br><br><br><br><br><br><br><br>
+	
+</div>

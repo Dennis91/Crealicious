@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crealicious</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="logo"><%= link_to image_tag("logo.svg"), root_path %></div>
+			<% if user_signed_in? %>
+			<%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+			<% end %>
+			<div id="navigation">
+				<a href="<i class='icon-reorder'></i>" id="menu-icon"></a>
+				
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li>Bestellen</li>
+					<li><%= link_to 'Portfolio', cases_path %></li>
+					<li>Contact</li> 
+				</ul>
+			</div>
+		</div>
+		
+	</header>
+	<hr>
+
+	<%= yield %>
+	<hr class="hr_footer">
+	<footer>
+		<div class="container">
+			<div id="sitemap">
+				<h2>Sitemap</h2>
+				<p>
+					<%= link_to 'Home', root_path %> <br>
+					<%= link_to 'Portfolio', cases_path %> <br>
+				</p>
+			</div>
+			<div id="sitemap">
+				<p>
+					<%= link_to 'Contact', root_path %> <br>
+				</p>
+			</div>
+			<div id="about_us">
+				<h2>Over ons</h2>
+			</div>
+			<div id="contact">
+				<h2>Contact</h2>
+				<p>Dokkumertrekweg 25B <br>
+8917 AB  Leeuwarden <br>
+06 - 23652651</p>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>

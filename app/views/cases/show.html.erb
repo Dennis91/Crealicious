@@ -1,0 +1,53 @@
+<div class="container">
+	<div id="slider">
+		<%= image_tag @case.images.first.image_url(:slider) if @case.images.first %>
+	</div>
+	
+	<div class="right_sidebar">
+		
+		<h2><span class="rest-in-place" data-object="case" data-attribute="title"><%=  @case.title %></span></h2>
+		<p># <%= @case.occasion %></p>
+		<p># <%= @case.theme %></p>
+		<p># <%= @case.created_at %></p>
+		<%= link_to 'New Image', new_image_path(:case_id => @case.id), :class => "button pull_bottom" %>
+		
+	</div>
+	
+	<div class="text_container">
+		<h2>Beschrijving</h2>
+		<p><%= @case.description %></p>
+	</div>	
+	
+	<hr class="normal">
+	<div class="flexslider">
+		<ul class="slides">
+		<% @case.images.each do |i|%>
+			<li class="shadow">
+				<%= link_to image_tag i.image_url(:thumb) %>
+			</li>
+			<li>
+				<%= link_to '', new_image_path(:case_id => @case.id), :class => "icon-plus icon-2x grey" %>
+		<% end%>
+		</ul>
+	</div>
+	
+	<hr class="normal">
+		<div id="review_new">
+			<h2>Geef hier je eigen beoordeling!</h2>
+			<p><%= render 'reviews/form' %></p>
+		</div>
+		<div id="case_reviews">
+		<h2>Klantbeoordelingen</h2>
+		<br>
+		<% @case.reviews.order("created_at desc").each do |r| %>
+			<div id="review">
+				<%= link_to raw("<i class='icon-remove pull-right'></i>"), r, method: :delete, data: { confirm: 'Weet u het zeker?' } %>
+				<h2><%= r.name %></h2>
+				<p><%= r.description %></p>
+				<hr class="normal">
+			</div>
+		<% end %>
+		</div>
+
+</div>
+

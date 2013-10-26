@@ -1,0 +1,11 @@
+<%= form_for(@post) do |f| %>
+	
+	<%= f.text_area :message, :class => "form_field", :rows => "10", :placeholder => "Bericht..." %><br>
+	
+	<%= f.submit "Plaats post", :class => "button" %>	
+
+<% end %>
+
+
+
+	

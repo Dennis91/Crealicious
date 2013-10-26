@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+	<%= link_to 'New Case', new_case_path, :class => "button pull-right" %>
+<% end %>
+
+<div class="container">
+	<h1>Explore: #Newest / #All </h1>
+	
+	<% @cases.each do |c| %>
+		<div class="case">
+			<div class="shadow"><%= link_to image_tag c.images.first.image_url(:thumb) if c.images.first %></div>
+			<hr class="normal">
+			<h2><%= link_to c.title, c %></h2>
+		</div>
+	<% end %>
+</div>
+
+
+
+

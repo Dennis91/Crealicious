@@ -1,0 +1,21 @@
+<%= form_for(@review) do |f| %>
+
+	<%= f.hidden_field :case_id %>
+	
+  <%= f.radio_button :score, "1", :class => "radio_button" %>
+  <%= f.radio_button :score, "2" %>
+  <%= f.radio_button :score, "3" %>
+  <%= f.radio_button :score, "4" %>
+  <%= f.radio_button :score, "5" %>
+	
+	<%= f.text_field :name, :class => "form_field", :placeholder => "Naam + Achternaam"  %><br>
+
+	<%= f.text_area :description, :class => "form_field", :rows => "10", :placeholder => "Bericht..." %><br>
+	
+	<%= f.submit "Plaats beoordeling", :class => "button" %>	
+
+<% end %>
+
+
+
+	
