@@ -17,6 +17,10 @@ set :ssh_options, {:forward_agent => true }
 
 default_run_options[:pty] = true
 
+after "bundle:install" do
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+  end
+
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
