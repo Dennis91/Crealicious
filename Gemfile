@@ -7,13 +7,10 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -36,6 +33,16 @@ group :production do
   gem 'pg'
 end
 
+group :assets do
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'sass'
+  gem 'neat'
+  gem 'bourbon'
+  gem 'font-awesome-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -50,12 +57,9 @@ gem 'capistrano', '~> 2.15.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sass'
-gem 'neat'
-gem 'bourbon'
+
 gem 'mini_magick'
 gem 'carrierwave'
-gem 'font-awesome-rails'
 gem 'rest_in_place'
 gem "koala", "~> 1.7.0rc1"
 gem 'devise'
