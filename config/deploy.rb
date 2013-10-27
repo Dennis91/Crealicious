@@ -1,5 +1,5 @@
 require 'bundler/capistrano'
-
+load 'deploy/assets'
 
 set :application, "crealicious"
 set :ip_address, "149.210.131.83"
@@ -38,14 +38,4 @@ role :db,  ip_address, :primary => true # This is where Rails migrations will ru
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
-namespace :assets do
-    desc "compile assets locally and upload before finalize_update"
-    task :deploy do
-        %x[bundle exec rake assets:clean && bundle exec rake assets:precompile]
-        ENV['COMMAND'] = " mkdir '#{release_path}/public/assets'"
-        invoke
-        upload '/path/to/app/public/assets', "#{release_path}/public/assets", {:recursive => true}
-    end
-end
-after "deploy:finalize_update", "assets:deploy"
 
