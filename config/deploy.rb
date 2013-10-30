@@ -4,7 +4,7 @@ set :branch, 'master'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/home/deploy/applications/#{application}'
+set :deploy_to, '/home/deploy/crealicious'
 set :scm, :git
 
 # set :format, :pretty
