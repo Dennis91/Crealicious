@@ -23,5 +23,6 @@ production:
   encoding: unicode
   database: crealicious_production
   pool: 5
-  username: postgresql
+  host: localhost
+  username: creaccess
   password: 

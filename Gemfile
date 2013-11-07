@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 
@@ -13,7 +15,8 @@ gem 'sqlite3'
 # Use CoffeeScript for .js.coffee assets and views
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+gem 'rvm-capistrano'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -50,8 +53,8 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano',  '~> 3.0.0'
-gem 'capistrano-rails'
+# gem 'capistrano',  '~> 3.0.0'
+# gem 'capistrano-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

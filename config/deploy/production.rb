@@ -17,9 +17,6 @@ role :db,  %w{deploy@149.210.131.83}
 # extended properties on the server.
 server '149.210.131.83', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
-
-# set :ssh_options, { :forward_agent => true, :port => 1754, :keys => %w(/home/seting/.ssh/id_rsa) }
-
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
 # you can see them in [net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start)
@@ -43,12 +40,3 @@ server '149.210.131.83', user: 'deploy', roles: %w{web app}, my_property: :my_va
 # setting per server overrides global ssh_options
 
 # fetch(:default_env).merge!(rails_env: :production)
-
-
-
-
-
-
-
-
-

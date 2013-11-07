@@ -1,10 +1,10 @@
 set :application, 'crealicious'
 set :repo_url, 'git@github.com:Dennis91/Crealicious.git'
-set :branch, 'master'
+set :branch, "master"
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/home/deploy/crealicious'
+set :deploy_to, "/home/deploy/rails_apps/crealicious"
 set :scm, :git
 
 # set :format, :pretty
@@ -16,8 +16,6 @@ set :pty, true
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :keep_releases, 5
-
-
 
 namespace :deploy do
 
