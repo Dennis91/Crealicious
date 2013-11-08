@@ -1,15 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
-
-
 $(document).ready(function() {
   $('.flexslider').flexslider({
     animation: "slide",
     animationLoop: false,
     itemWidth: 210,
-    itemMargin: 5
+    itemMargin: 5,
   });
 });
 
@@ -19,7 +13,7 @@ $(document).ready(function() {
  * Copyright 2012 WooThemes
  * Contributing Author: Tyler Smith
  */
-;
+
 (function ($) {
 
   //FlexSlider: Object Instance
@@ -30,7 +24,7 @@ $(document).ready(function() {
     slider.vars = $.extend({}, $.flexslider.defaults, options);
 
     var namespace = slider.vars.namespace,
-        msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
+		msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
         touch = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
         // depricating this idea, as devices are being released with both of these events
         //eventType = (touch) ? "touchend" : "click",
