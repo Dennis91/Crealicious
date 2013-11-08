@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024130359) do
+ActiveRecord::Schema.define(version: 20131108185038) do
 
   create_table "cases", force: true do |t|
     t.string   "title"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131024130359) do
   create_table "reviews", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "score"
+    t.integer  "score",       default: 0
     t.integer  "case_id"
     t.datetime "created_at"
     t.datetime "updated_at"
