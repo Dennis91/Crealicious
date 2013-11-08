@@ -27,11 +27,6 @@ namespace :deploy do
       # execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-  
-  task :symlink do 
-     run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
-   end
-   after 'deploy', 'deploy:symlink'
    
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
