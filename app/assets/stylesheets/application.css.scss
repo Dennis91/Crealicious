@@ -53,9 +53,9 @@ hr.normal {
 }
 
 body {
-	background-image: url('light_wool.png');
+	background-image: image-url('light_wool.png');
 	hr {
-		background: url("curved_line.svg") repeat left;
+		background: image-url("curved_line.svg") repeat left;
 		background-size: 15%;
 		height: 20px;
 		margin-top: -8px;
@@ -68,7 +68,7 @@ body {
 }
 
 header {
-	background-image: url('background.png');
+	background-image: image-url('background.png');
 	padding: 0.5em 1em;
 	height: 10%;
 /*	border-bottom: 0.5em solid #a5d4bd;*/
@@ -78,7 +78,7 @@ header {
 }
 
 footer {
-	background-image: url('background.png');
+	background-image: image-url('background.png');
 	padding: 0.5em 1em;
 	bottom: 0;
 		p { 
@@ -104,7 +104,7 @@ hr.hr_footer {
 
 div.hr {
   height: 15px;
-  background: #fff url(hr1.gif) no-repeat scroll center;
+  background: #fff image-url(hr1.gif) no-repeat scroll center;
 }
 div.hr hr {
   display: none;
