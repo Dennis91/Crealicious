@@ -16,10 +16,7 @@ set :pty, true
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :keep_releases, 5
-task :symlink_config, roles: :app do
-  ...
-  run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
-end
+
 
 namespace :deploy do
 
@@ -29,6 +26,11 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
     end
+  end
+  
+  task :symlink_config, roles: :app do
+    ...
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
 
   after :restart, :clear_cache do
