@@ -28,10 +28,11 @@ namespace :deploy do
     end
   end
   
-  task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
-  end
-
+  task :symlink do 
+     run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+   end
+   after 'deploy', 'deploy:symlink'
+   
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
