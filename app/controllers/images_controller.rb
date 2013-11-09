@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
     
     respond_to do |format|
       if @image.save
-        format.html { redirect_to(@image.case) }
+        format.html { redirect_to(@image) }
         flash[:succes] =  "Case is succesvol aangemaakt"
       else
         format.html { render :action => "new" }

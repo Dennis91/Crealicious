@@ -1,6 +1,6 @@
 <div class="container">
 	<div id="slider">
-		<%= image_tag @images.last.image_url(:slider) %>
+		<%= image_tag @images.last.image_url(:slider) if blank? %>
 	</div>
 	<div class="right_sidebar">
 		<h2>Nieuws 
@@ -13,11 +13,8 @@
 			<p><%= p.message %></p>
 			<p><%= p.created_at.strftime("%d %b. %Y")%></p>
 		<% end %>
-		
-		
-		
-		
 	</div>
+	
 	<div class="text_container">
 		<div id="text_5">
 			<br>
@@ -38,16 +35,18 @@
 			<%= image_tag("appel.JPG", :class => "shadow" ) %>
 		</div>
 	</div>
+	
 	<hr class="normal">
+	
 	<div class="reviews">
 		<div id="score">
 			<h2>Klantenboordelingen ( <%= @reviews.count %> )</h2>
-			<p><%= @reviews.last.score %></p>
+			<p><%= @reviews.last.score if blank?%></p>
 			<%= link_to 'Schrijf hier zelf een beoordeling', new_review_path %>
 		</div>
 		<div id="review">
-			<h2><%= @reviews.last.name %></h2>
-			<p><%= @reviews.last.description %></p>
+			<h2><%= @reviews.last.name if blank? %></h2>
+			<p><%= @reviews.last.description if blank? %></p>
 			
 		</div>
 	</div>
